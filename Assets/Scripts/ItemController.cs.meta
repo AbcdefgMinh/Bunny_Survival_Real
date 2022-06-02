@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/ItemController.cs.meta
+guid: 8f9cfbce8b98abe47acb9ed6efb1b731
+========
+guid: d8dd9a2869d9bcf4093c46497cabea8a
+>>>>>>>> Monster:Assets/Scripts/Monster.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
