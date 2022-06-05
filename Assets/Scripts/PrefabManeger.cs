@@ -13,6 +13,7 @@ public class PrefabManeger : MonoBehaviour
         Instantiate(weapon).SetActive(false);
         Instantiate(item).SetActive(false);
         Instantiate(monster).SetActive(false);
+        Instantiate(skill).SetActive(false);
     }
 
     private void Start()
@@ -23,5 +24,6 @@ public class PrefabManeger : MonoBehaviour
     public GameObject weapon;
     public GameObject item;
     public GameObject monster;
+    public GameObject skill;
 
 }

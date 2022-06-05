@@ -6,23 +6,16 @@ using UnityEngine.UI;
 
 public class PlayerStatsBar : MonoBehaviour
 {
-    public Player player;
     public Slider EXPSlider;
     public Slider HPSlider;
     public Slider MPSlider;
     public Animator EXPanimator;
     public TextMeshProUGUI lvltxt;
-
-    void Start()
-    {
-        setMaxEXP();
-        setMaxHP();
-        setMaxMP();
-    }
+    public int currentEXP;
 
     public void Update()
     {
-        if (player.currentEXP != EXPSlider.value)
+        if (currentEXP != EXPSlider.value)
         {
             if(EXPSlider.value != EXPSlider.maxValue)
             {
@@ -38,26 +31,33 @@ public class PlayerStatsBar : MonoBehaviour
         }
     }
 
-    public void setMaxEXP()
+    public void setMaxEXP(int exp, int current ,int lvl)
     {
-        EXPSlider.maxValue = player.maxEXP;
-        EXPSlider.value = player.currentEXP;
-        lvltxt.SetText("lvl " + player.lvl);
+        EXPSlider.maxValue = exp;
+        EXPSlider.value = 0;
+        currentEXP = current;
+        lvltxt.SetText("lvl " + lvl);
     }
 
-    public void setMaxHP()
+   
+
+    public void setMaxHP(float hp, float current)
     {
-        EXPSlider.maxValue = player.maxEXP;
-        EXPSlider.value = player.currentEXP;
+        EXPSlider.maxValue = hp;
+        EXPSlider.value = current;
     }
-    public void setMaxMP()
+    public void setMaxMP(float mp, float current)
     {
-        EXPSlider.maxValue = player.maxEXP;
-        EXPSlider.value = player.currentEXP;
+        EXPSlider.maxValue = mp;
+        EXPSlider.value = current;
     }
 
+    public void setEXP(int exp)
+    {
+        currentEXP += exp;
+    }
 
-    public void setHP(int hp)
+    public void setHP(float hp)
     {
         if (HPSlider.value >= HPSlider.maxValue)
         {
@@ -70,7 +70,7 @@ public class PlayerStatsBar : MonoBehaviour
        
     }
 
-    public void setMP(int mp)
+    public void setMP(float mp)
     {
         if(MPSlider.value >= MPSlider.maxValue)
         {

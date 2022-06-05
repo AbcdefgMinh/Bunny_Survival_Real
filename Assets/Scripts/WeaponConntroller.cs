@@ -15,10 +15,11 @@ public class WeaponConntroller : MonoBehaviour
         weapons = new List<Weapon>();
     }
 
-    public static void spawnWeapon(float playerdamge,Vector2 dir,Vector2 pos, Weapon.WeaponType weaponType)
+    public static Weapon spawnWeapon(float playerdamge,Vector2 dir,Vector2 pos, Weapon.WeaponType weaponType)
     {
         Weapon w = Instantiate(Instance.weapons.Find(x => x.weaponType == weaponType), pos, Quaternion.identity);
-        w.setup(playerdamge,dir);    
+        w.setup(playerdamge,dir);
+        return w;
     }
 
     public static Weapon getWeapon(Weapon.WeaponType weaponType)

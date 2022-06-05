@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
     public Inventory inventory;
     public Controller controller;
     public PlayerStatsBar playerStatsBar;
+    public PlayerSkill playerSkill;
+    public GameManeger gamemaneger;
 
     // player stats
-    public float lvl;
-    public float currentEXP;
-    public float maxEXP;
+    public int lvl;
+    public int currentEXP;
+    public int maxEXP;
     public float currentHP;
     public float maxHP;
     public float currentMP;
@@ -33,13 +35,17 @@ public class Player : MonoBehaviour
     void Start()
     {
         controller.animator = animator;
+        playerStatsBar.setMaxHP(maxHP,currentHP);
+        playerStatsBar.setMaxMP(maxMP, currentMP);
+        playerStatsBar.setMaxEXP(maxEXP, currentEXP,lvl);
     }
     internal void takeDamge(float damge)
     {
-    }
-    void Update()
-    {
-
+        currentHP -= damge;
+        if(currentHP <= 0)
+        {
+            gamemaneger.EndGame();
+        }
     }
 
     void FixedUpdate()
@@ -53,7 +59,51 @@ public class Player : MonoBehaviour
     {
         lvl++;
         currentEXP -= maxEXP;
-        maxEXP += 100;
-        playerStatsBar.setMaxEXP();
+        setMaxEXP(100);
+        UpgradeMenu.Instance.StartCoroutine("Roll");
+    }
+
+    public void setMaxHP(int max)
+    {
+        maxHP += max;
+        if (currentHP + max >= maxHP) currentHP = maxHP;
+        else currentHP += max;
+
+        playerStatsBar.setMaxHP(maxHP,currentHP);
+    }
+
+    public void setMaxMP(int max)
+    {
+
+        maxMP += max;
+        if (currentMP + max >= maxHP) currentMP = maxMP;
+        else currentMP += max;
+
+        playerStatsBar.setMaxMP(maxMP,currentEXP);
+
+    }
+
+    public void setMaxEXP(int max)
+    {
+        maxEXP += max;
+        playerStatsBar.setMaxEXP(maxEXP,currentEXP,lvl);
+    }
+
+    public void setEXP(int exp)
+    {
+        currentEXP += exp;
+        playerStatsBar.setEXP(exp);
+    }
+
+    public void setHP(float hp)
+    {
+        currentHP += hp;
+        playerStatsBar.setHP(hp);
+    }
+
+    public void setMP(float mp)
+    {
+        currentMP += mp;
+        playerStatsBar.setHP(mp);
     }
 }

@@ -10,11 +10,10 @@ public class Timer : MonoBehaviour
     public float timeRemaining = 1800f;
     public bool timerIsRunning = false;
     public TextMeshProUGUI timeText;
-
     public float minutes;
     public float seconds;
 
-    private void Awake()
+    private void Start()
     {
         timerIsRunning = true;
     }

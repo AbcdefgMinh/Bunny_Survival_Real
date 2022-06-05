@@ -5,64 +5,82 @@ using UnityEngine.UI;
 
 public class luckyboxOpen : MonoBehaviour
 {
-    public Player player;
+    public GameManeger gameManeger;
+    public Transform mainPanel;
     public Animator luckybox;
-    public Image light;
-    public Image item;
+    public Image imagelight;
+    public SpriteRenderer item;
     public Animator luckyBoxAnimator;
     public Animator itemAnimator;
+    public Button okBTN;
+    public Button cancelBTN;
+    bool picked;
+    bool take;
+    Weapon weapon;
 
-    public LinkedList<Weapon> weaponsList;
+    public static luckyboxOpen Instance { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
-        Roll();
-    }
-    void Update()
-    {
-
+        Instance = this;
     }
 
     IEnumerator Roll()
     {
         List<Weapon> list = WeaponConntroller.getWeaponList();
-        Weapon w = getRamdomWeapon(Random.Range(0, list.Count - 1), list);
-        for (int i = 0; i < 5; i++)
-        {
+        Weapon w;
+        okBTN.gameObject.SetActive(false);
+        cancelBTN.gameObject.SetActive(false);
+        picked = false;
+        take = false;
+        gameManeger.gamePause(true);
+        mainPanel.gameObject.SetActive(true);
+        luckyBoxAnimator.SetTrigger("Open");
+        yield return new WaitForSeconds(1f);
+        itemAnimator.SetTrigger("Rolling");
 
+        for (int i = 0;i != 6; i++)
+        {
             w = getRamdomWeapon(Random.Range(0, list.Count - 1), list);
-            item.gameObject.SetActive(true);
-            item.sprite = w.spriteRenderer.sprite;
 
             switch (w.rarityType)
             {
                 case Rarity.rarityType.COMMON:
-                    light.color = Color.white;
+                    imagelight.color = Color.white;
                     break;
                 case Rarity.rarityType.RARE:
-                    light.color = Color.blue;
+                    imagelight.color = Color.blue;
                     break;
                 case Rarity.rarityType.EPIC:
-                    light.color = Color.magenta;
+                    imagelight.color = Color.magenta;
                     break;
                 case Rarity.rarityType.SUPERRARE:
-                    light.color = Color.yellow;
+                    imagelight.color = Color.yellow;
                     break;
             }
 
-            yield return new WaitForSeconds(.1f);
+            weapon = WeaponConntroller.spawnWeapon(0, Vector2.zero, item.transform.position, w.weaponType);
+            item.sprite = weapon.getSprite();
+
+            if (i < 5 )
+            {
+                weapon.Destroythis();
+                yield return new WaitForSeconds(1f);
+            }
+            else
+            {
+                okBTN.gameObject.SetActive(true);
+                cancelBTN.gameObject.SetActive(true);
+                yield return new WaitUntil(() => picked == true);
+                if(take)
+                {
+                    gameManeger.player.inventory.addWeapon(w.weaponType);
+                }
+            }
         }
-
-        if (player.inventory.weaponList.Contains(w))
-        {
-
-        }
-        else
-        {
-            player.inventory.addWeapon(w);
-        }
-
-
+        if (weapon != null) weapon.Destroythis();
+        mainPanel.gameObject.SetActive(false);
+        gameManeger.gamePause(false);
         yield return 0;
     }
 
@@ -70,4 +88,17 @@ public class luckyboxOpen : MonoBehaviour
     {
         return list[i];
     }
+
+    public void okClicked()
+    {
+        picked = true;
+        take = true;
+    }
+
+    public void cancelClicked()
+    {
+        picked = true;
+        take = false;
+    }
+
 }

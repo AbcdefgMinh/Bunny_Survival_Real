@@ -37,12 +37,12 @@ public class Weapon : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, angle);
         rb2d.AddForce(dir * speed, ForceMode2D.Impulse);
-        Destroythis();
+        Destroy(gameObject,timeOnField);
     }
 
     public void Destroythis()
     {
-        Destroy(gameObject,timeOnField);
+        Destroy(gameObject);
     }
     public Sprite getSprite()
     {

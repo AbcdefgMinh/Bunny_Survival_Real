@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public Player player;
-    public Transform target;
+    Transform target;
     float attackCoolDown;
 
     void Start()

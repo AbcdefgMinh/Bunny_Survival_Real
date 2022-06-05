@@ -7,15 +7,17 @@ public class Controller : MonoBehaviour
 
     public Player player;
     public Animator animator;
-    // Start is called before the first frame update
-
-    void Start()
-    {
-        
-    }
+    public bool enable = true;
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Menu.Instance.PauseGame();
+        }
+
+        if (!enable) return;
+ 
         //set animation Up
         if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
         {
@@ -52,10 +54,25 @@ public class Controller : MonoBehaviour
         {
             animator.SetBool("IsRight", false);
         }
+
+        if (Input.GetKeyDown("q"))
+        {
+            player.playerSkill.skillNO1();
+        }
+        if (Input.GetKeyDown("e"))
+        {
+            player.playerSkill.skillNO2();
+        }
+        if (Input.GetKeyDown("r"))
+        {
+            player.playerSkill.skillNO3();
+        }
     }
 
     void FixedUpdate()
     {
+        if(!enable) return;
+
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 

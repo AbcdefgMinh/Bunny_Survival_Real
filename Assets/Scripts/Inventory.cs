@@ -8,29 +8,26 @@ public class Inventory : MonoBehaviour
     public Player player;
     public List<Item> itemList;
     public List<Weapon> weaponList;
-    
+    public List<Skill> skillList;
+
 
     void Start()
     {
         itemList = new List<Item>();
         weaponList = new List<Weapon>();
-
-        weaponList.Add(WeaponConntroller.getWeapon(Weapon.WeaponType.KNIFE));
+        skillList = new List<Skill>();
     }
-    public void addItem(Item item)
-    {
-        foreach(Item i in itemList)
-        {
-            if (i == item)
-            {
-            }
-        }
 
-        itemList.Add(item);
-    }
-    public void addWeapon(Weapon weapon)
+    public void addWeapon(Weapon.WeaponType weaponType)
     {
-        weaponList.Add(weapon);
+        weaponList.Add(WeaponConntroller.getWeapon(weaponType));
+    }
+
+    public void addSkill(Skill.skillType skillType)
+    {
+        skillList.Add(SkillController.getSkill(skillType));
+
+        player.playerSkill.addSkill(SkillController.getSkill(skillType));
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -50,6 +47,7 @@ public class Inventory : MonoBehaviour
                     playerPickMana();
                     break;
                 case Item.itemType.LUCKYBOX:
+                    playerPickLuckyBox();
                     break;
             }
 
@@ -60,19 +58,20 @@ public class Inventory : MonoBehaviour
 
     private void playerPickEXP()
     {
-        player.currentEXP += 20;
+        player.setEXP(20);
     }
 
     private void playerPickHealth()
     {
-        player.currentHP += 40;
-        player.playerStatsBar.setHP(40);
+        player.setHP(40);
     }
 
     private void playerPickMana()
     {
-        player.currentMP += 40;
-        player.playerStatsBar.setMP(40);
-
+        player.setMP(40);
     } 
+    private void playerPickLuckyBox()
+    {
+        luckyboxOpen.Instance.StartCoroutine("Roll");
+    }
 }
