@@ -187,7 +187,7 @@ MonoBehaviour:
   animator: {fileID: 2138685003630510665}
   lvl: 1
   damge: 5
-  speed: 2
+  speed: 5
   coolDown: 10
   currentCoolDown: 0
   cost: 30

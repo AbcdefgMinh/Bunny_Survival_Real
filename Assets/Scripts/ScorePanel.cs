@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class ScorePanel : MonoBehaviour
@@ -16,6 +17,9 @@ public class ScorePanel : MonoBehaviour
     public Button retryBTN;
     public Button mainmenuBTN;
     public Button quitBTN;
+
+    public Animator gameStartAnim;
+    public Animator gameOverAnim;
 
     public GameManeger gameManeger;
 
@@ -35,28 +39,37 @@ public class ScorePanel : MonoBehaviour
         clicked = false;
         gamescoreUI.gameObject.SetActive(true);
 
-        for (kill = 0; kill < gameManeger.MONSTERSKILL; kill++)
+
+        for (kill = 0; kill <= gameManeger.MONSTERSKILL; kill++)
         {
-            kill++;
-            monsterkilltxt.SetText(kill + 1 +"");
-            yield return new WaitForSeconds(0.03f);
+            monsterkilltxt.SetText(kill + "");
+            yield return new WaitForSeconds(0.02f);
+
         }
 
         float timesurvie = 1800 - gameManeger.timer.timeRemaining;
-        for (time = 0; time < timesurvie; time++)
+        if(timesurvie == 1800)
         {
-            int minutes = Mathf.FloorToInt(time / 60);
-            int seconds = Mathf.FloorToInt(time % 60);
-            timetxt.SetText(minutes + " : " + seconds);
-            yield return new WaitForSeconds(0.03f);
+            timetxt.SetText(0 + " : " + 0);
+            yield return new WaitForSeconds(0.02f);
+        }
+        else
+        {
+            for (time = 0; time < timesurvie; time++)
+            {
+                int minutes = Mathf.FloorToInt(time / 60);
+                int seconds = Mathf.FloorToInt(time % 60);
+                timetxt.SetText(minutes + " : " + seconds);
+                yield return new WaitForSeconds(0.2f);
+            }
         }
 
-        for (damge = 0; damge < gameManeger.DAMGEDEAL; damge++)
+        for (damge = 0; damge <= gameManeger.DAMGEDEAL; damge++)
         {
-            damge++;
-            damgetxt.SetText(damge + 1 + "");
-            yield return new WaitForSeconds(0.03f);
+            damgetxt.SetText(damge + "");
+            yield return new WaitForSeconds(0.02f);
         }
+
 
         yield return new WaitForSeconds(0.3f);
         retryBTN.gameObject.SetActive(true);
@@ -77,11 +90,13 @@ public class ScorePanel : MonoBehaviour
     public void mainmenuClicked()
     {
         clicked = true;
+        SceneManager.LoadScene(0);
     }
 
     public void quitClicked()
     {
         clicked = true;
+        Application.Quit();
     }
 
 }

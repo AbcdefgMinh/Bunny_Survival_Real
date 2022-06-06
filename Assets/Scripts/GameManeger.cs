@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManeger : MonoBehaviour
 {
 
-    public int MONSTERSKILL = 180;
-    public int DAMGEDEAL = 200;
+    public int MONSTERSKILL;
+    public int DAMGEDEAL;
 
     public enum phaseType
     {
@@ -32,9 +33,8 @@ public class GameManeger : MonoBehaviour
 
     void Start()
     {
-        phase = phaseType.phase1;
         monsters = new List<Monster>();
-
+        //StartCoroutine("GameStart");
     }
     
     public void Update()
@@ -50,7 +50,6 @@ public class GameManeger : MonoBehaviour
              phase = phaseType.phase2;
          }*/
 
-
     }
     
     public void SpawnMonster()
@@ -58,19 +57,29 @@ public class GameManeger : MonoBehaviour
 
     }
 
-    public void StartGame()
+    IEnumerator GameStart()
     {
-
+        gamePause(true);
+        timer.timeRemaining = 1800;
+        MONSTERSKILL = 0;
+        DAMGEDEAL = 0;     
+        phase = phaseType.phase1;
+        scorepanel.gamestartUI.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        scorepanel.gamestartUI.gameObject.SetActive(false);
+        gamePause(false);
+        yield return null;
     }
 
     public void RestartGame()
     {
-
+        SceneManager.LoadScene(1);
     }
 
     public void EndGame()
     {
-
+        gamePause(true);
+        scorepanel.StartCoroutine("Score");
     }
 
     public void gamePause(bool x)

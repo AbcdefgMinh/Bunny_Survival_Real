@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public GameManeger gameManeger;
@@ -30,11 +30,11 @@ public class Menu : MonoBehaviour
 
     public void mainmenuClicked()
     {
-
+        SceneManager.LoadScene(0);
     }
 
     public void quitClicked()
     {
-
+        Application.Quit();
     }
 }
