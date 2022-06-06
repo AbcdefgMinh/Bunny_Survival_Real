@@ -39,7 +39,7 @@ public class luckyboxOpen : MonoBehaviour
         yield return new WaitForSeconds(1f);
         itemAnimator.SetTrigger("Rolling");
 
-        for (int i = 0;i != 6; i++)
+        for (int i = 0;i != 10; i++)
         {
             w = getRamdomWeapon(Random.Range(0, list.Count - 1), list);
 
@@ -62,10 +62,10 @@ public class luckyboxOpen : MonoBehaviour
             weapon = WeaponConntroller.spawnWeapon(0, Vector2.zero, item.transform.position, w.weaponType);
             item.sprite = weapon.getSprite();
 
-            if (i < 5 )
+            if (i < 9 )
             {
                 weapon.Destroythis();
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.3f);
             }
             else
             {

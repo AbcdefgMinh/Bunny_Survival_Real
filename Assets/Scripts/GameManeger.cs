@@ -34,7 +34,8 @@ public class GameManeger : MonoBehaviour
     void Start()
     {
         monsters = new List<Monster>();
-        //StartCoroutine("GameStart");
+       //StartCoroutine("GameStart");
+
     }
     
     public void Update()
