@@ -16,6 +16,14 @@ public class Inventory : MonoBehaviour
         itemList = new List<Item>();
         weaponList = new List<Weapon>();
         skillList = new List<Skill>();
+
+        // addSkill(Skill.skillType.FIREBALL);
+        // addSkill(Skill.skillType.EARTH);
+        // addSkill(Skill.skillType.FIRESTORM);
+        // addSkill(Skill.skillType.DARKNESS);
+
+        
+
     }
 
     public void addWeapon(Weapon.WeaponType weaponType)

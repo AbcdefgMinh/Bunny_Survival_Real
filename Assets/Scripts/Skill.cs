@@ -8,8 +8,10 @@ public class Skill : MonoBehaviour
     public enum skillType
     {
         FIREBALL,
-        FIREPROTECTION,
-
+        THUNDER1,
+        FIRESTORM,
+        DARKNESS,
+        EARTH
     }
 
     public Rigidbody2D rb2d;
