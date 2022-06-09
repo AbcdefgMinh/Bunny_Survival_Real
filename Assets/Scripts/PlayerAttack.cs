@@ -26,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
+        if (GameManeger.pause) return;
         if (player.inventory.weaponList.Count == 0) return;
         foreach(Weapon weapon in player.inventory.weaponList)
         {

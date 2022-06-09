@@ -16,6 +16,8 @@ public class Inventory : MonoBehaviour
         itemList = new List<Item>();
         weaponList = new List<Weapon>();
         skillList = new List<Skill>();
+
+        addWeapon(Weapon.WeaponType.KNIFE);
     }
 
     public void addWeapon(Weapon.WeaponType weaponType)

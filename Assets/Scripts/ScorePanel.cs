@@ -25,7 +25,6 @@ public class ScorePanel : MonoBehaviour
 
     int kill;
     float time;
-    int damge;
     bool clicked;
 
     IEnumerator Score()
@@ -40,7 +39,7 @@ public class ScorePanel : MonoBehaviour
         gamescoreUI.gameObject.SetActive(true);
 
 
-        for (kill = 0; kill <= gameManeger.MONSTERSKILL; kill++)
+        for (kill = 0; kill <= GameManeger.MONSTERSKILL; kill++)
         {
             monsterkilltxt.SetText(kill + "");
             yield return new WaitForSeconds(0.02f);
@@ -51,7 +50,7 @@ public class ScorePanel : MonoBehaviour
         if(timesurvie == 1800)
         {
             timetxt.SetText(0 + " : " + 0);
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.01f);
         }
         else
         {
@@ -60,15 +59,12 @@ public class ScorePanel : MonoBehaviour
                 int minutes = Mathf.FloorToInt(time / 60);
                 int seconds = Mathf.FloorToInt(time % 60);
                 timetxt.SetText(minutes + " : " + seconds);
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.01f);
             }
         }
 
-        for (damge = 0; damge <= gameManeger.DAMGEDEAL; damge++)
-        {
-            damgetxt.SetText(damge + "");
-            yield return new WaitForSeconds(0.02f);
-        }
+            damgetxt.SetText(GameManeger.DAMGEDEAL + "");
+
 
 
         yield return new WaitForSeconds(0.3f);
@@ -85,12 +81,12 @@ public class ScorePanel : MonoBehaviour
     public void retryClicked()
     {
         clicked = true;
-        gameManeger.RestartGame();
+        gameManeger.StartCoroutine("RestartGame");
     }
     public void mainmenuClicked()
     {
         clicked = true;
-        SceneManager.LoadScene(0);
+        gameManeger.StartCoroutine("MainMenu");
     }
 
     public void quitClicked()

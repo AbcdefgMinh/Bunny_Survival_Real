@@ -51,6 +51,10 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      
+        Monster monster = collision.transform.GetComponent<Monster>();
+        if(monster != null)
+        {
+            monster.takeDamge(damge);
+        }
     }
 }

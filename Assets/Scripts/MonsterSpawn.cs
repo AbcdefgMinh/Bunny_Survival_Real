@@ -17,7 +17,12 @@ public class MonsterSpawn : MonoBehaviour
 
     public static void spawnMonster(Vector2 pos, Monster.monsterType monsterType)
     {
-        Instantiate(Instance.monsters.Find(x => x.monstertype == monsterType), pos, Quaternion.identity);
+        GameManeger.monsters.Add(Instantiate(Instance.monsters.Find(x => x.monstertype == monsterType), pos, Quaternion.identity));
+    }
+
+    public static Transform spawnDoor(Vector2 pos)
+    {
+       return Instantiate(PrefabManeger.Instance.door, pos, Quaternion.identity).transform;
     }
 
     public static Monster getMonster(Monster.monsterType monsterType)

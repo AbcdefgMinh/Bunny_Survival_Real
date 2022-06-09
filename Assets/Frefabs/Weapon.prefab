@@ -506,7 +506,7 @@ MonoBehaviour:
   weaponType: 0
   lvl: 1
   damge: 2
-  speed: 2
+  speed: 5
   knockBack: 1
   timeOnField: 3
   rarityType: 0

@@ -14,16 +14,13 @@ public class PrefabManeger : MonoBehaviour
         Instantiate(item).SetActive(false);
         Instantiate(monster).SetActive(false);
         Instantiate(skill).SetActive(false);
-    }
-
-    private void Start()
-    {
-  
+        Instantiate(door).SetActive(false);
     }
 
     public GameObject weapon;
     public GameObject item;
     public GameObject monster;
     public GameObject skill;
+    public GameObject door;
 
 }

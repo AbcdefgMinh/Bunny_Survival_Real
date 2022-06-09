@@ -30,7 +30,7 @@ public class Menu : MonoBehaviour
 
     public void mainmenuClicked()
     {
-        SceneManager.LoadScene(0);
+        gameManeger.StartCoroutine("MainMenu");
     }
 
     public void quitClicked()

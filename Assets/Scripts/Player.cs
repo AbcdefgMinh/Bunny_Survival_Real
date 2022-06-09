@@ -46,6 +46,8 @@ public class Player : MonoBehaviour
         {
             gamemaneger.EndGame();
         }
+
+        setHP(-damge);
     }
 
     void FixedUpdate()

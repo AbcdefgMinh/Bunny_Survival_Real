@@ -43,31 +43,53 @@ public class Monster : MonoBehaviour
         
         
     }
-    internal void takeDamge(float damge)
+    public void takeDamge(float damge)
     {
-       
+        maxHP -= damge;
+        GameManeger.DAMGEDEAL += (int)damge;
+        if (maxHP <= 0) Monsterdie();
     }
+
+    public void Monsterdie()
+    {
+        GameManeger.monsters.Remove(this);
+        GameManeger.MONSTERSKILL++;
+
+
+        int i = Random.Range(0, 31);
+  
+        if(i == 30)
+        {
+            ItemController.spawnItem(transform.position, Item.itemType.LUCKYBOX);
+        }
+        else if(i >= 25 && i <= 29)
+        {
+            ItemController.spawnItem(transform.position, Item.itemType.HEALTHPOTION);
+        }
+        else if(i >= 20 && i <= 24)
+        {
+            ItemController.spawnItem(transform.position, Item.itemType.MANAPOTION);
+        }
+        else if(i < 20)
+        {
+            ItemController.spawnItem(transform.position, Item.itemType.EXP);
+        }
+
+        Destroy(gameObject);
+    }    
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManeger.pause) return;
         if (attackCoolDown > 0)
         {
             attackCoolDown -= Time.deltaTime;
         }
-        else
-        {
-              
-        }
 
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed*Time.deltaTime);
-  
-        
+
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    } 
     private void OnCollisionStay2D(Collision2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();

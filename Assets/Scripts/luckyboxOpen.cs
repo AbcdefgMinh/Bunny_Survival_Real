@@ -7,11 +7,10 @@ public class luckyboxOpen : MonoBehaviour
 {
     public GameManeger gameManeger;
     public Transform mainPanel;
-    public Animator luckybox;
     public Image imagelight;
     public SpriteRenderer item;
-    public Animator luckyBoxAnimator;
-    public Animator itemAnimator;
+    public Transform luckyBoxAnimator;
+    public Transform itemAnimator;
     public Button okBTN;
     public Button cancelBTN;
     bool picked;
@@ -35,9 +34,9 @@ public class luckyboxOpen : MonoBehaviour
         take = false;
         gameManeger.gamePause(true);
         mainPanel.gameObject.SetActive(true);
-        luckyBoxAnimator.SetTrigger("Open");
+        luckyBoxAnimator.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
-        itemAnimator.SetTrigger("Rolling");
+        itemAnimator.gameObject.SetActive(true);
 
         for (int i = 0;i != 10; i++)
         {
@@ -80,6 +79,8 @@ public class luckyboxOpen : MonoBehaviour
         }
         if (weapon != null) weapon.Destroythis();
         mainPanel.gameObject.SetActive(false);
+        itemAnimator.gameObject.SetActive(false);
+        luckyBoxAnimator.gameObject.SetActive(false);
         gameManeger.gamePause(false);
         yield return 0;
     }
