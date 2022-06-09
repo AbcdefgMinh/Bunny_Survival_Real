@@ -80523,7 +80523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.1900635, y: -0.54241943}
+  m_AnchoredPosition: {x: 1.190094, y: -0.54241943}
   m_SizeDelta: {x: -11.52, y: 18.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752574869
@@ -82100,9 +82100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1005634265}
   skillUI: {fileID: 1447747377}
-  skillno1: {fileID: 0}
-  skillno2: {fileID: 0}
-  skillno3: {fileID: 0}
 --- !u!1 &1007551995
 GameObject:
   m_ObjectHideFlags: 0
@@ -89690,7 +89687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.9400635, y: 0.58000183}
+  m_AnchoredPosition: {x: 1.940094, y: 0.58000183}
   m_SizeDelta: {x: -20.73, y: 6.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1960085521

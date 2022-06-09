@@ -18,41 +18,41 @@ public class Controller : MonoBehaviour
 
         if (!enable) return;
  
-         //set animation Up
+        //set animation Up
         if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
         {
-            animator.SetInteger("setMov", 1);
+            animator.SetBool("IsUp", true);
         }
         else if (Input.GetKeyUp("w") || Input.GetKeyUp("up"))
         {
-            animator.SetInteger("setMov", 0);
+            animator.SetBool("IsUp", false);
         }
         //set animation Down
         if (Input.GetKeyDown("s") || Input.GetKeyDown("down"))
         {
-            animator.SetInteger("setMov", 2);
+            animator.SetBool("IsDown", true);
         }
         else if (Input.GetKeyUp("s") || Input.GetKeyUp("down"))
         {
-            animator.SetInteger("setMov", 0);
+            animator.SetBool("IsDown", false);
         }
         //set animation Left
         if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
         {
-            animator.SetInteger("setMov", 4);
+            animator.SetBool("IsLeft", true);
         }
         else if (Input.GetKeyUp("a") || Input.GetKeyUp("left"))
         {
-            animator.SetInteger("setMov", 0);
+            animator.SetBool("IsLeft", false);
         }
         //set animation Right
         if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
         {
-            animator.SetInteger("setMov", 3);
+            animator.SetBool("IsRight", true);
         }
         else if (Input.GetKeyUp("d") || Input.GetKeyUp("right"))
         {
-            animator.SetInteger("setMov", 0);
+            animator.SetBool("IsRight", false);
         }
 
         if (Input.GetKeyDown("q"))

@@ -9,9 +9,9 @@ public class PlayerSkill : MonoBehaviour
     Transform target;
     float attackCoolDown;
     float countdown;
-    public Skill skillno1;
-    public Skill skillno2;
-    public Skill skillno3;
+    Skill skillno1;
+    Skill skillno2;
+    Skill skillno3;
 
     void Start()
     {
@@ -52,11 +52,11 @@ public class PlayerSkill : MonoBehaviour
         }
         if (skillno2 != null)
         {
-            skillUI.setCoolDown2(skillno2);
+            skillUI.setCoolDown1(skillno2);
         }
         if (skillno3 != null)
         {
-            skillUI.setCoolDown3(skillno3);
+            skillUI.setCoolDown1(skillno3);
         }
     }
 
@@ -65,17 +65,17 @@ public class PlayerSkill : MonoBehaviour
         if(skillno1 == null)
         {
             skillno1 = skill;
-            skillUI.setSkill1(skillno1);
+            skillUI.setSkill1(skill);
         } 
         else if(skillno2 == null)
         {
             skillno2 = skill;
-            skillUI.setSkill2(skillno2);
+            skillUI.setSkill2(skill);
         }
         else if(skillno3 == null)
         {
             skillno3 = skill;
-            skillUI.setSkill3(skillno3);
+            skillUI.setSkill3(skill);
         }
     }
 
@@ -114,42 +114,17 @@ public class PlayerSkill : MonoBehaviour
     {
         switch(skill.skilltype)
         {
-            case Skill.skillType.FIRESTORM:
-                lvl1firestorm();
-                break;
-            case Skill.skillType.DARKNESS:
-                lvl1darkness();
-                break;
-            case Skill.skillType.EARTH:
-                lvl1earth();
-                break;
             case Skill.skillType.FIREBALL:
                 lvl1fireball();
                 break;
-        }  
+            case Skill.skillType.FIREPROTECTION:
+                break;
+        }
     }
 
     public void lvl1fireball()
     {
         Vector2 dir = (target.transform.position - player.transform.position).normalized;
         SkillController.spawnSkill(player.attack, dir, player.transform.position, Skill.skillType.FIREBALL);
-    }
-
-    public void lvl1darkness()
-    {
-        Vector2 dir = (target.transform.position - player.transform.position).normalized;
-        SkillController.spawnSkill(player.attack, dir, player.transform.position, Skill.skillType.DARKNESS);
-    }
-
-    public void lvl1firestorm()
-    {
-        Vector2 dir = (target.transform.position - player.transform.position).normalized;
-        SkillController.spawnSkill(player.attack, dir, player.transform.position, Skill.skillType.FIRESTORM);
-    }
-
-    public void lvl1earth()
-    {
-        Vector2 dir = (target.transform.position - player.transform.position).normalized;
-        SkillController.spawnSkill(player.attack, dir, player.transform.position, Skill.skillType.EARTH);
     }
 }
