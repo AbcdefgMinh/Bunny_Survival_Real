@@ -53,7 +53,7 @@ public class GameManeger : MonoBehaviour
 
         switch ((int)timer.timeRemaining)
         {
-            case 1790:
+            case 1799:
                 if (spawning == false) break;
                 spawning = false;
                 StartCoroutine(CreateWave(MonsterSpawn.spawnDoor(new Vector2(25, 0)), 30, Monster.monsterType.MON1));
@@ -109,7 +109,7 @@ public class GameManeger : MonoBehaviour
         yield return new WaitForSeconds(3f);
         scorepanel.gamestartUI.gameObject.SetActive(false);
         gamePause(false);
-        timer.timeRemaining = 1800;
+        timer.timerIsRunning = true;
         ItemController.spawnItem(new Vector2 (0,-1), Item.itemType.LUCKYBOX);
         yield return null;
     }

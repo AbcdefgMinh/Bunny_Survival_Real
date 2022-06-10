@@ -46,6 +46,7 @@ public class Monster : MonoBehaviour
     public void takeDamge(float damge)
     {
         maxHP -= damge;
+        DamgePopUp.Instance.spawnPopUp((int)damge, transform.position);
         GameManeger.DAMGEDEAL += (int)damge;
         if (maxHP <= 0) Monsterdie();
     }

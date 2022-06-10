@@ -8,15 +8,11 @@ public class Timer : MonoBehaviour
 {
     // Start is called before the first frame update
     public float timeRemaining = 1800f;
-    public bool timerIsRunning = false;
+    public bool timerIsRunning;
     public TextMeshProUGUI timeText;
     public float minutes;
     public float seconds;
 
-    private void Start()
-    {
-        timerIsRunning = true;
-    }
     void Update()
     {
         if (timerIsRunning)

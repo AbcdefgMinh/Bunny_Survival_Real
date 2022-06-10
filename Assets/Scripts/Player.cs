@@ -50,21 +50,6 @@ public class Player : MonoBehaviour
         setHP(-damge);
     }
 
-    void FixedUpdate()
-    {
-        if (currentEXP >= maxEXP)
-        {
-            LvlUp();
-        }
-    }
-    void LvlUp()
-    {
-        lvl++;
-        currentEXP -= maxEXP;
-        setMaxEXP(100);
-        UpgradeMenu.Instance.StartCoroutine("Roll");
-    }
-
     public void setMaxHP(int max)
     {
         maxHP += max;
@@ -93,7 +78,15 @@ public class Player : MonoBehaviour
 
     public void setEXP(int exp)
     {
+        
         currentEXP += exp;
+        if (currentEXP >= maxEXP)
+        {
+            lvl++;
+            currentEXP -= maxEXP;
+            setMaxEXP(100);
+            UpgradeMenu.Instance.StartCoroutine("Roll");
+        }
         playerStatsBar.setEXP(exp);
     }
 

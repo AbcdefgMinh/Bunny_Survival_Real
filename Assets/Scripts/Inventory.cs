@@ -6,6 +6,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public Player player;
+    public  InventoryUI inventoryUI;
     public List<Item> itemList;
     public List<Weapon> weaponList;
     public List<Skill> skillList;
@@ -22,13 +23,15 @@ public class Inventory : MonoBehaviour
 
     public void addWeapon(Weapon.WeaponType weaponType)
     {
+        if (weaponList.Count == 4) return;
         weaponList.Add(WeaponConntroller.getWeapon(weaponType));
+        inventoryUI.updateUI();
     }
 
     public void addSkill(Skill.skillType skillType)
     {
+        if (weaponList.Count == 3) return;
         skillList.Add(SkillController.getSkill(skillType));
-
         player.playerSkill.addSkill(SkillController.getSkill(skillType));
     }
 

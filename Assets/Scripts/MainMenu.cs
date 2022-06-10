@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
     public Animator LoadingScreen;
     public Animator mainmenu;
 
+    public AudioManager audioManager;
 
     void Awake()
     {
@@ -55,12 +56,14 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(4f);
         playBTN.gameObject.SetActive(true);
         tutorialBTN.gameObject.SetActive(true);
-        quitBTN.gameObject.SetActive(true);  
+        quitBTN.gameObject.SetActive(true);
+        audioManager.PlayLoop(Sound.soundType.mainmenu);
         yield return null;
     }
 
     IEnumerator PlayMovie()
     {
+        audioManager.Stop(Sound.soundType.mainmenu);
         mainmenu.SetTrigger("fade");
         text.gameObject.SetActive(false);
         yield return new WaitForSeconds(1.5f);
@@ -74,10 +77,12 @@ public class MainMenu : MonoBehaviour
 
     public void onPlayClicked()
     {
+        audioManager.Play(Sound.soundType.button);
         StartCoroutine("PlayMovie");
     }
     public void onTutorialClicked()
     {
+        audioManager.Play(Sound.soundType.button);
         panellist[current].SetActive(false);
         current = 0;
         panellist[current].SetActive(true);
@@ -86,11 +91,13 @@ public class MainMenu : MonoBehaviour
     }
     public void onQuitClicked()
     {
+        audioManager.Play(Sound.soundType.button);
         Application.Quit();
     }
 
     public void onNextClicked()
     {
+        audioManager.Play(Sound.soundType.button);
         panellist[current].SetActive(false);
         current++;
         if (current > panellist.Count -1) current = 0;
@@ -101,6 +108,7 @@ public class MainMenu : MonoBehaviour
 
     public void onBackClicked()
     {
+        audioManager.Play(Sound.soundType.button);
         panellist[current].SetActive(false);
         current--;
         if (current < 0) current = panellist.Count - 1;
@@ -110,6 +118,7 @@ public class MainMenu : MonoBehaviour
 
     public void onExitClicked()
     {
+        audioManager.Play(Sound.soundType.button);
         tutorialpanel.gameObject.SetActive(false);
     }
 }
