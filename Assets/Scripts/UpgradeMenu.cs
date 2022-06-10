@@ -40,7 +40,7 @@ public class UpgradeMenu : MonoBehaviour
         {
             if (item1.playerstats != null && item2.playerstats != null && item3.playerstats != null && item4.playerstats != null) break;
 
-            stat = getRamdomPlayerStats(Random.Range(0, list.Count - 1));
+            stat = getRamdomPlayerStats(Random.Range(0, list.Count));
             if (item1.playerstats == null)
             {
                 item1.playerstats = stat;

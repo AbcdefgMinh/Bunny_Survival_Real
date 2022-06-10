@@ -41,7 +41,6 @@ public class GameManeger : MonoBehaviour
     public void Update()
     {
         if(pause) return;
-        Debug.Log(monsters.Count);
         if (monsters.Count >= 100)
         {
             maxMonster = true;

@@ -35,12 +35,14 @@ public class luckyboxOpen : MonoBehaviour
         gameManeger.gamePause(true);
         mainPanel.gameObject.SetActive(true);
         luckyBoxAnimator.gameObject.SetActive(true);
+        imagelight.color = Color.white;
+        item.sprite = null;
         yield return new WaitForSeconds(1f);
         itemAnimator.gameObject.SetActive(true);
 
-        for (int i = 0;i != 10; i++)
+        for (int i = 0;i < 11; i++)
         {
-            w = getRamdomWeapon(Random.Range(0, list.Count - 1), list);
+            w = getRamdomWeapon(Random.Range(0, list.Count), list);
 
             switch (w.rarityType)
             {
@@ -61,7 +63,7 @@ public class luckyboxOpen : MonoBehaviour
             weapon = WeaponConntroller.spawnWeapon(0, Vector2.zero, item.transform.position, w.weaponType);
             item.sprite = weapon.getSprite();
 
-            if (i < 9 )
+            if (i < 10 )
             {
                 weapon.Destroythis();
                 yield return new WaitForSeconds(0.3f);

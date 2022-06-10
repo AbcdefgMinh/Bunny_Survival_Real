@@ -32,16 +32,28 @@ public class Player : MonoBehaviour
     public float attackSpeed;
     public float speed = 1.5f;
 
+    float CoolDown = 1;
+
     void Start()
     {
         controller.animator = animator;
         playerStatsBar.setMaxHP(maxHP,currentHP);
         playerStatsBar.setMaxMP(maxMP, currentMP);
-        playerStatsBar.setMaxEXP(maxEXP, currentEXP,lvl);
+        playerStatsBar.setMaxEXP(maxEXP,lvl);
+    }
+    private void Update()
+    {
+        if (GameManeger.pause) return;
+        if (CoolDown <= 0)
+        {
+            CoolDown = 1;
+            setHP(1);
+            setMP(1);
+        }
+        CoolDown -= Time.deltaTime;
     }
     internal void takeDamge(float damge)
     {
-        currentHP -= damge;
         if(currentHP <= 0)
         {
             gamemaneger.EndGame();
@@ -73,7 +85,7 @@ public class Player : MonoBehaviour
     public void setMaxEXP(int max)
     {
         maxEXP += max;
-        playerStatsBar.setMaxEXP(maxEXP,currentEXP,lvl);
+        playerStatsBar.setMaxEXP(maxEXP,lvl);
     }
 
     public void setEXP(int exp)
@@ -93,12 +105,14 @@ public class Player : MonoBehaviour
     public void setHP(float hp)
     {
         currentHP += hp;
-        playerStatsBar.setHP(hp);
+        if (currentHP > maxHP) currentHP = maxHP;
+        playerStatsBar.setHP(currentHP);
     }
 
     public void setMP(float mp)
     {
         currentMP += mp;
-        playerStatsBar.setHP(mp);
+        if (currentMP > maxMP) currentMP = maxMP;
+        playerStatsBar.setMP(currentMP);
     }
 }

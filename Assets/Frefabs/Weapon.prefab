@@ -339,7 +339,7 @@ MonoBehaviour:
   speed: 2
   knockBack: 1
   timeOnField: 3
-  rarityType: 0
+  rarityType: 1
 --- !u!1 &3964475840138175977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 961144560138400735}
   spriteRenderer: {fileID: 1451799829200852611}
-  weaponType: 1
+  weaponType: 2
   lvl: 1
   damge: 2
   speed: 2

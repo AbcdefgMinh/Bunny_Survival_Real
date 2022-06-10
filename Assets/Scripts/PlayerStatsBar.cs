@@ -11,15 +11,20 @@ public class PlayerStatsBar : MonoBehaviour
     public Slider MPSlider;
     public Animator EXPanimator;
     public TextMeshProUGUI lvltxt;
-    public int currentEXP;
+    public int currentEXP = 0;
 
     public void Update()
     {
-        if (currentEXP != EXPSlider.value)
+        if (currentEXP > 0)
         {
-            if(EXPSlider.value != EXPSlider.maxValue)
+            if(EXPSlider.value == EXPSlider.maxValue)
             {
-                EXPSlider.value += 0.5f;
+                EXPSlider.value = 0;            
+            }
+            else
+            {
+                EXPSlider.value += 1f;
+                currentEXP -= 1;
             }
 
             EXPanimator.SetBool("EXPGoing", true);
@@ -31,11 +36,9 @@ public class PlayerStatsBar : MonoBehaviour
         }
     }
 
-    public void setMaxEXP(int exp, int current ,int lvl)
+    public void setMaxEXP(int exp , int lvl)
     {
         EXPSlider.maxValue = exp;
-        EXPSlider.value = 0;
-        currentEXP = current;
         lvltxt.SetText("lvl " + lvl);
     }
 
@@ -43,13 +46,13 @@ public class PlayerStatsBar : MonoBehaviour
 
     public void setMaxHP(float hp, float current)
     {
-        EXPSlider.maxValue = hp;
-        EXPSlider.value = current;
+        HPSlider.maxValue = hp;
+        HPSlider.value = current;
     }
     public void setMaxMP(float mp, float current)
     {
-        EXPSlider.maxValue = mp;
-        EXPSlider.value = current;
+        MPSlider.maxValue = mp;
+        MPSlider.value = current;
     }
 
     public void setEXP(int exp)
@@ -57,29 +60,14 @@ public class PlayerStatsBar : MonoBehaviour
         currentEXP += exp;
     }
 
-    public void setHP(float hp)
+    public void setHP(float currentHP)
     {
-        if (HPSlider.value >= HPSlider.maxValue)
-        {
-            HPSlider.value = HPSlider.maxValue;
-        }
-        else
-        {
-            HPSlider.value += hp;
-        }
-       
+        HPSlider.value = currentHP;
     }
 
-    public void setMP(float mp)
+    public void setMP(float currentMP)
     {
-        if(MPSlider.value >= MPSlider.maxValue)
-        {
-            MPSlider.value = MPSlider.maxValue;
-        }
-        else
-        {
-            MPSlider.value += mp;
-        }
+        MPSlider.value = currentMP;
     }
    
 

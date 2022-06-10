@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void Update()
     {
-
+       if (GameManeger.pause) return;
        if(attackCoolDown <= 0)
        {
             attackCoolDown = player.attackSpeed;

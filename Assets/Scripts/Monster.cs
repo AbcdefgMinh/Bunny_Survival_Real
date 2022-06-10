@@ -57,21 +57,21 @@ public class Monster : MonoBehaviour
         GameManeger.MONSTERSKILL++;
 
 
-        int i = Random.Range(0, 31);
+        int i = Random.Range(0, 101);
   
-        if(i == 30)
+        if(i == 100)
         {
             ItemController.spawnItem(transform.position, Item.itemType.LUCKYBOX);
         }
-        else if(i >= 25 && i <= 29)
+        else if(i >= 97 && i <= 99)
         {
             ItemController.spawnItem(transform.position, Item.itemType.HEALTHPOTION);
         }
-        else if(i >= 20 && i <= 24)
+        else if(i >= 93 && i <= 96)
         {
             ItemController.spawnItem(transform.position, Item.itemType.MANAPOTION);
         }
-        else if(i < 20)
+        else if(i < 92)
         {
             ItemController.spawnItem(transform.position, Item.itemType.EXP);
         }

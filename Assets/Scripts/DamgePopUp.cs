@@ -11,9 +11,7 @@ public class DamgePopUp : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
-        popup = transform.GetChild(0).gameObject;
-        
+        Instance = this;      
     }
 
     public void spawnPopUp(int damge,Vector2 pos)
