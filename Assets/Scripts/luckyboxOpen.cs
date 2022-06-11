@@ -42,7 +42,7 @@ public class luckyboxOpen : MonoBehaviour
 
         for (int i = 0;i < 11; i++)
         {
-            w = getRamdomWeapon(Random.Range(0, list.Count), list);
+            w = list[Random.Range(0, list.Count)];
 
             switch (w.rarityType)
             {
@@ -66,7 +66,7 @@ public class luckyboxOpen : MonoBehaviour
             if (i < 10 )
             {
                 weapon.Destroythis();
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(0.2f);
             }
             else
             {
@@ -85,11 +85,6 @@ public class luckyboxOpen : MonoBehaviour
         luckyBoxAnimator.gameObject.SetActive(false);
         gameManeger.gamePause(false);
         yield return 0;
-    }
-
-    public Weapon getRamdomWeapon(int i, List<Weapon> list)
-    {
-        return list[i];
     }
 
     public void okClicked()

@@ -18,13 +18,30 @@ public class Inventory : MonoBehaviour
         weaponList = new List<Weapon>();
         skillList = new List<Skill>();
 
-        addWeapon(Weapon.WeaponType.KNIFE);
+        addWeapon(Weapon.WeaponType.DEMONSWORD);
+        addWeapon(Weapon.WeaponType.SPEAR);
+        addWeapon(Weapon.WeaponType.SPEAR);
+        addWeapon(Weapon.WeaponType.SPEAR);
+        addWeapon(Weapon.WeaponType.HAMMER);
+        addWeapon(Weapon.WeaponType.HAMMER);
+        addWeapon(Weapon.WeaponType.HAMMER);
     }
 
     public void addWeapon(Weapon.WeaponType weaponType)
     {
         if (weaponList.Count == 4) return;
-        weaponList.Add(WeaponConntroller.getWeapon(weaponType));
+        Weapon w = WeaponConntroller.getWeapon(weaponType);
+        foreach(Weapon weapon in weaponList)
+        {
+            if(weapon == w)
+            {
+                weapon.lvlUP();
+                inventoryUI.updateUI();
+                return;
+            }
+        }
+
+        weaponList.Add(w);
         inventoryUI.updateUI();
     }
 

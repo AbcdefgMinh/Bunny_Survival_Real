@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1076776410377587806}
   - component: {fileID: 808016556812262797}
   - component: {fileID: 345094002272639121}
-  - component: {fileID: 1561222652109305143}
   - component: {fileID: 3347049735015422415}
+  - component: {fileID: 1049148090337501284}
+  - component: {fileID: 6868487092260154536}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Weapons
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2851888911465907095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2096504910404363304}
@@ -60,7 +61,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!212 &345094002272639121
 SpriteRenderer:
@@ -114,7 +115,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1561222652109305143
+--- !u!114 &3347049735015422415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2851888911465907095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628104db11c69b740aa553378bde2b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 808016556812262797}
+  spriteRenderer: {fileID: 345094002272639121}
+  weaponType: 3
+  lvl: 1
+  damge: 2
+  speed: 4
+  knockBack: 2
+  timeOnField: 0.8
+  rarityType: 1
+--- !u!95 &1049148090337501284
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2851888911465907095}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38463fbb0590f11419d2197310def5c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &6868487092260154536
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,30 +188,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0004958685, y: 0.35419115}
-  m_Size: {x: 0.91072977, y: 0.82172525}
-  m_Direction: 1
---- !u!114 &3347049735015422415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2851888911465907095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 628104db11c69b740aa553378bde2b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb2d: {fileID: 808016556812262797}
-  spriteRenderer: {fileID: 345094002272639121}
-  weaponType: 3
-  lvl: 1
-  damge: 2
-  speed: 4
-  knockBack: 2
-  timeOnField: 3
-  rarityType: 1
+  m_Offset: {x: 0, y: 0.7}
+  m_Size: {x: 1, y: 1.5}
+  m_Direction: 0
 --- !u!1 &3854104175632251927
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +204,7 @@ GameObject:
   - component: {fileID: 4900640272328306620}
   - component: {fileID: 3451411887941647621}
   - component: {fileID: 3608108298702171472}
+  - component: {fileID: 6425948260592154880}
   m_Layer: 0
   m_Name: ShortSword
   m_TagString: Weapons
@@ -199,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 3854104175632251927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2096504910404363304}
@@ -230,7 +252,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!212 &4900640272328306620
 SpriteRenderer:
@@ -316,8 +338,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0035859048, y: 0.003585875}
-  m_Size: {x: 0.3026003, y: 0.7615936}
+  m_Offset: {x: -0.0035859048, y: 0.47683528}
+  m_Size: {x: 0.3026003, y: 0.5705127}
   m_Direction: 0
 --- !u!114 &3608108298702171472
 MonoBehaviour:
@@ -336,10 +358,30 @@ MonoBehaviour:
   weaponType: 1
   lvl: 1
   damge: 2
-  speed: 2
+  speed: 8
   knockBack: 1
   timeOnField: 3
   rarityType: 1
+--- !u!95 &6425948260592154880
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854104175632251927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 474640dd94cc0b84a9d0673b4c652fad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3964475840138175977
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,14 +409,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3964475840138175977}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2096504910404363304}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7946256313520444552
 Rigidbody2D:
   serializedVersion: 4
@@ -400,7 +442,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!212 &8468089223717802589
 SpriteRenderer:
@@ -486,8 +528,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.39583334, y: 0.20833333}
+  m_Offset: {x: 0.000000012059306, y: 0.10116081}
+  m_Size: {x: 0.39583352, y: 0.22897914}
   m_Direction: 1
 --- !u!114 &6160671588150557539
 MonoBehaviour:
@@ -570,7 +612,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!212 &1597030950322782411
 SpriteRenderer:
@@ -656,8 +698,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00717178, y: 0.3052338}
-  m_Size: {x: 0.3599743, y: 0.62588817}
+  m_Offset: {x: -0.00717178, y: 0.87747294}
+  m_Size: {x: 0.3599743, y: 0.69175375}
   m_Direction: 0
 --- !u!114 &7712067322743655661
 MonoBehaviour:
@@ -676,9 +718,9 @@ MonoBehaviour:
   weaponType: 4
   lvl: 1
   damge: 5
-  speed: 2
+  speed: 10
   knockBack: 3
-  timeOnField: 3
+  timeOnField: 2
   rarityType: 2
 --- !u!1 &5710601613791084055
 GameObject:
@@ -693,6 +735,7 @@ GameObject:
   - component: {fileID: 433695434458974595}
   - component: {fileID: 4726062476332326464}
   - component: {fileID: 8137545629824024557}
+  - component: {fileID: 3423806243427418541}
   m_Layer: 0
   m_Name: Scythe
   m_TagString: Weapons
@@ -709,7 +752,7 @@ Transform:
   m_GameObject: {fileID: 5710601613791084055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2096504910404363304}
@@ -740,7 +783,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!212 &433695434458974595
 SpriteRenderer:
@@ -826,8 +869,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017929707, y: 0.26714826}
-  m_Size: {x: 0.62533087, y: 0.33128795}
+  m_Offset: {x: 0.017929763, y: 0.7249468}
+  m_Size: {x: 0.8451443, y: 0.4434026}
   m_Direction: 1
 --- !u!114 &8137545629824024557
 MonoBehaviour:
@@ -846,10 +889,30 @@ MonoBehaviour:
   weaponType: 5
   lvl: 1
   damge: 5
-  speed: 2
+  speed: 5
   knockBack: 2
-  timeOnField: 6
+  timeOnField: 4
   rarityType: 3
+--- !u!95 &3423806243427418541
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710601613791084055}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e0644295840724409e2fa598537357a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6118359900938796879
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +977,7 @@ GameObject:
   - component: {fileID: 1451799829200852611}
   - component: {fileID: 634148645634473944}
   - component: {fileID: 8028553599627341014}
+  - component: {fileID: 9145005766645491236}
   m_Layer: 0
   m_Name: DemonSword
   m_TagString: Weapons
@@ -930,7 +994,7 @@ Transform:
   m_GameObject: {fileID: 8090313398437170968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2096504910404363304}
@@ -961,7 +1025,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!212 &1451799829200852611
 SpriteRenderer:
@@ -1047,8 +1111,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00717178, y: -0.010757685}
-  m_Size: {x: 0.3599743, y: 0.9552313}
+  m_Offset: {x: -0.00717178, y: 0.5484701}
+  m_Size: {x: 0.3599743, y: 0.7897445}
   m_Direction: 0
 --- !u!114 &8028553599627341014
 MonoBehaviour:
@@ -1067,7 +1131,27 @@ MonoBehaviour:
   weaponType: 2
   lvl: 1
   damge: 2
-  speed: 2
+  speed: 4
   knockBack: 0
   timeOnField: 3
   rarityType: 2
+--- !u!95 &9145005766645491236
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8090313398437170968}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 404ff752de5a36a4c9d2f78983d95914, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

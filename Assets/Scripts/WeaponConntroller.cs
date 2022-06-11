@@ -15,10 +15,31 @@ public class WeaponConntroller : MonoBehaviour
         weapons = new List<Weapon>();
     }
 
-    public static Weapon spawnWeapon(float playerdamge,Vector2 dir,Vector2 pos, Weapon.WeaponType weaponType)
+    public static Weapon spawnWeaponfly(float playerdamge,Vector2 dir,Vector2 pos, Weapon.WeaponType weaponType)
     {
         Weapon w = Instantiate(Instance.weapons.Find(x => x.weaponType == weaponType), pos, Quaternion.identity);
-        w.setup(playerdamge,dir);
+        w.setupfly(playerdamge,dir);
+        return w;
+    }
+
+    public static Weapon spawnWeaponflyRamdom(float playerdamge, Vector2 pos, Weapon.WeaponType weaponType)
+    {
+        Weapon w = Instantiate(Instance.weapons.Find(x => x.weaponType == weaponType), pos, Quaternion.identity);
+        w.setupfly(playerdamge,new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)));
+        return w;
+    }
+
+    public static Weapon spawnWeaponfollow(Player player, Vector2 dir, Weapon.WeaponType weaponType)
+    {
+        Weapon w = Instantiate(Instance.weapons.Find(x => x.weaponType == weaponType), player.transform.position, Quaternion.identity);
+        w.setupfollow(player, dir);
+        return w;
+    }
+
+    public static Weapon spawnWeapon(float playerdamge, Vector2 dir, Vector2 pos, Weapon.WeaponType weaponType)
+    {
+        Weapon w = Instantiate(Instance.weapons.Find(x => x.weaponType == weaponType), pos, Quaternion.identity);
+        w.setupangle(playerdamge, dir);
         return w;
     }
 
