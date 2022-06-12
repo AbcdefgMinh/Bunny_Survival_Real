@@ -36,11 +36,11 @@ public class PlayerSkill : MonoBehaviour
             }
             if (skillno2 != null)
             {
-                if (skillno2.currentCoolDown != 0) skillno1.currentCoolDown--;
+                if (skillno2.currentCoolDown != 0) skillno2.currentCoolDown--;
             }
             if (skillno3 != null)
             {
-                if (skillno3.currentCoolDown != 0) skillno1.currentCoolDown--;
+                if (skillno3.currentCoolDown != 0) skillno3.currentCoolDown--;
             }
         }
         countdown -= Time.deltaTime;
@@ -52,11 +52,11 @@ public class PlayerSkill : MonoBehaviour
         }
         if (skillno2 != null)
         {
-            skillUI.setCoolDown1(skillno2);
+            skillUI.setCoolDown2(skillno2);
         }
         if (skillno3 != null)
         {
-            skillUI.setCoolDown1(skillno3);
+            skillUI.setCoolDown3(skillno3);
         }
     }
 
@@ -92,22 +92,36 @@ public class PlayerSkill : MonoBehaviour
 
     public void skillNO2()
     {
-        if (skillno2 == null) return;
-        if (attackCoolDown <= 0)
-        {
-            attackCoolDown = 0.5f;
-            useSkill(skillno2);
-        }
+        if (skillno2 == null || attackCoolDown <= 0) return;
+        if (skillno2.currentCoolDown != 0) return;
+
+        attackCoolDown = 0.5f;
+        useSkill(skillno2);
+        skillno2.currentCoolDown = skillno2.coolDown;
+
+        // if (skillno2 == null) return;
+        // if (attackCoolDown <= 0)
+        // {
+        //     attackCoolDown = 0.5f;
+        //     useSkill(skillno2);
+        // }
     }
 
     public void skillNO3()
     {
-        if (skillno3 == null) return;
-        if (attackCoolDown <= 0)
-        {
-            attackCoolDown = 0.5f;
-            useSkill(skillno3);
-        }
+        if (skillno3 == null || attackCoolDown <= 0) return;
+        if (skillno3.currentCoolDown != 0) return;
+
+        attackCoolDown = 0.5f;
+        useSkill(skillno3);
+        skillno3.currentCoolDown = skillno3.coolDown;
+
+        // if (skillno3 == null) return;
+        // if (attackCoolDown <= 0)
+        // {
+        //     attackCoolDown = 0.5f;
+        //     useSkill(skillno3);
+        // }
     }
 
     public void useSkill(Skill skill)
@@ -117,7 +131,17 @@ public class PlayerSkill : MonoBehaviour
             case Skill.skillType.FIREBALL:
                 lvl1fireball();
                 break;
-            case Skill.skillType.FIREPROTECTION:
+            case Skill.skillType.SNOWFLOWER:
+                lvl1snowflower();
+                break;
+            case Skill.skillType.ELECTRIC:
+                lvl1electric();
+                break;
+            case Skill.skillType.DARKNESS:
+                lvl1darkness();
+                break;
+            case Skill.skillType.EARTH:
+                lvl1earth();
                 break;
         }
     }
@@ -126,5 +150,29 @@ public class PlayerSkill : MonoBehaviour
     {
         Vector2 dir = (target.transform.position - player.transform.position).normalized;
         SkillController.spawnSkill(player.attack, dir, player.transform.position, Skill.skillType.FIREBALL);
+    }
+
+    public void lvl1electric()
+    {
+        Vector2 dir = (target.transform.position - player.transform.position).normalized;
+        SkillController.spawnSkill(player.attack, dir, player.transform.position, Skill.skillType.ELECTRIC);
+    }
+
+    public void lvl1earth()
+    {
+        Vector2 dir = (target.transform.position - player.transform.position).normalized;
+        SkillController.spawnSkill(player.attack, dir, player.transform.position, Skill.skillType.EARTH);
+    }
+
+    public void lvl1snowflower()
+    {
+        Vector2 dir = (target.transform.position - player.transform.position).normalized;
+        SkillController.spawnSkill(player.attack, dir, player.transform.position, Skill.skillType.SNOWFLOWER);
+    }
+
+    public void lvl1darkness()
+    {
+        Vector2 dir = (target.transform.position - player.transform.position).normalized;
+        SkillController.spawnSkill(player.attack, dir, player.transform.position, Skill.skillType.DARKNESS);
     }
 }
