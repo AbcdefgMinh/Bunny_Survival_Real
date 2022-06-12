@@ -84,10 +84,16 @@ public class PlayerSkill : MonoBehaviour
         if (skillno1 == null || attackCoolDown <= 0) return;
         if (skillno1.currentCoolDown != 0) return;
 
-        attackCoolDown = 0.5f;
-        useSkill(skillno1);
-        skillno1.currentCoolDown = skillno1.coolDown;
+        
 
+        if (player.currentMP >= skillno1.cost)
+        {
+            attackCoolDown = 0.5f;
+            useSkill(skillno1);
+            skillno1.currentCoolDown = skillno1.coolDown;
+            player.setMP(-(skillno1.cost));
+        }
+        
     }
 
     public void skillNO2()
@@ -95,9 +101,14 @@ public class PlayerSkill : MonoBehaviour
         if (skillno2 == null || attackCoolDown <= 0) return;
         if (skillno2.currentCoolDown != 0) return;
 
-        attackCoolDown = 0.5f;
-        useSkill(skillno2);
-        skillno2.currentCoolDown = skillno2.coolDown;
+        if (player.currentMP >= skillno1.cost)
+        {
+            attackCoolDown = 0.5f;
+            useSkill(skillno2);
+            skillno2.currentCoolDown = skillno2.coolDown;
+            player.setMP(-skillno2.cost);
+        }
+        
 
         // if (skillno2 == null) return;
         // if (attackCoolDown <= 0)
@@ -112,9 +123,14 @@ public class PlayerSkill : MonoBehaviour
         if (skillno3 == null || attackCoolDown <= 0) return;
         if (skillno3.currentCoolDown != 0) return;
 
-        attackCoolDown = 0.5f;
-        useSkill(skillno3);
-        skillno3.currentCoolDown = skillno3.coolDown;
+        if (player.currentMP >= skillno3.cost)
+        {
+            attackCoolDown = 0.5f;
+            useSkill(skillno3);
+            skillno3.currentCoolDown = skillno3.coolDown;
+            player.setMP(-skillno3.cost);
+        }
+        
 
         // if (skillno3 == null) return;
         // if (attackCoolDown <= 0)

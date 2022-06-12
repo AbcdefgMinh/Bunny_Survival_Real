@@ -16,7 +16,7 @@ public class SkillController : MonoBehaviour
 
     public static void spawnSkill(float playerdamge, Vector2 dir, Vector2 pos, Skill.skillType skilltype)
     {
-        Skill w = Instantiate(Instance.skills.Find(x => x.skilltype == skilltype), pos, Quaternion.identity);
+        Skill w = Instantiate(getSkill(skilltype), pos, Quaternion.identity);
         w.setup(playerdamge, dir);
     }
 

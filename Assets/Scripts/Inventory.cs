@@ -29,8 +29,8 @@ public class Inventory : MonoBehaviour
         addSkill(Skill.skillType.FIREBALL);
         addSkill(Skill.skillType.SNOWFLOWER);
         addSkill(Skill.skillType.ELECTRIC);
-        addSkill(Skill.skillType.EARTH);
-        addSkill(Skill.skillType.DARKNESS);
+        //addSkill(Skill.skillType.EARTH);
+        //addSkill(Skill.skillType.DARKNESS);
     }
 
     public void addWeapon(Weapon.WeaponType weaponType)

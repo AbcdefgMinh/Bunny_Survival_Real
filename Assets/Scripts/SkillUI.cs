@@ -16,7 +16,7 @@ public class SkillUI : MonoBehaviour
     {
         slider1.maxValue = skill.coolDown;
         slider1.value = skill.coolDown;
-        image1.sprite = skill.spriteRenderer.sprite;
+        image1.sprite = skill.getSprite();
     }
 
     public void setCoolDown1(Skill skill)
@@ -28,7 +28,7 @@ public class SkillUI : MonoBehaviour
     {
         slider2.maxValue = skill.coolDown;
         slider2.value = skill.coolDown;
-        image2.sprite = skill.spriteRenderer.sprite;
+        image2.sprite = skill.getSprite();
     }
 
     public void setCoolDown2(Skill skill)
@@ -40,7 +40,7 @@ public class SkillUI : MonoBehaviour
     {
         slider3.maxValue = skill.coolDown;
         slider3.value = skill.coolDown;
-        image3.sprite = skill.spriteRenderer.sprite;
+        image3.sprite = skill.getSprite();
     }
 
     public void setCoolDown3(Skill skill)
