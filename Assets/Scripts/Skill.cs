@@ -11,7 +11,7 @@ public class Skill : MonoBehaviour
         DARKNESS,
         EARTH,
         SNOWFLOWER,
-        ELECTRIC,
+        ELECTRIC
     }
 
     public Rigidbody2D rb2d;
