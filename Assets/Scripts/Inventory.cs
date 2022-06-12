@@ -17,20 +17,6 @@ public class Inventory : MonoBehaviour
         itemList = new List<Item>();
         weaponList = new List<Weapon>();
         skillList = new List<Skill>();
-
-        addWeapon(Weapon.WeaponType.DEMONSWORD);
-        addWeapon(Weapon.WeaponType.SPEAR);
-        addWeapon(Weapon.WeaponType.SPEAR);
-        addWeapon(Weapon.WeaponType.SPEAR);
-        addWeapon(Weapon.WeaponType.HAMMER);
-        addWeapon(Weapon.WeaponType.HAMMER);
-        addWeapon(Weapon.WeaponType.HAMMER);
-
-        addSkill(Skill.skillType.FIREBALL);
-        addSkill(Skill.skillType.SNOWFLOWER);
-        addSkill(Skill.skillType.ELECTRIC);
-        //addSkill(Skill.skillType.EARTH);
-        //addSkill(Skill.skillType.DARKNESS);
     }
 
     public void addWeapon(Weapon.WeaponType weaponType)

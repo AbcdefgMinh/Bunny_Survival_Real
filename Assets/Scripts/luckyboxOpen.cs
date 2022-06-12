@@ -15,7 +15,6 @@ public class luckyboxOpen : MonoBehaviour
     public Button cancelBTN;
     bool picked;
     bool take;
-    Weapon weapon;
 
     public static luckyboxOpen Instance { get; private set; }
 
@@ -26,8 +25,11 @@ public class luckyboxOpen : MonoBehaviour
 
     IEnumerator Roll()
     {
-        List<Weapon> list = WeaponConntroller.getWeaponList();
-        Weapon w;
+        List<Weapon> wlist = WeaponConntroller.getWeaponList();
+        List<Skill> slist = SkillController.getSkillList();
+        Weapon weapon;
+        Skill skill;
+
         okBTN.gameObject.SetActive(false);
         cancelBTN.gameObject.SetActive(false);
         picked = false;
@@ -42,44 +44,94 @@ public class luckyboxOpen : MonoBehaviour
 
         for (int i = 0;i < 11; i++)
         {
-            w = list[Random.Range(0, list.Count)];
 
-            switch (w.rarityType)
+            int what = Random.Range(0, 1);
+            if(what == 1)
             {
-                case Rarity.rarityType.COMMON:
-                    imagelight.color = Color.white;
-                    break;
-                case Rarity.rarityType.RARE:
-                    imagelight.color = Color.blue;
-                    break;
-                case Rarity.rarityType.EPIC:
-                    imagelight.color = Color.magenta;
-                    break;
-                case Rarity.rarityType.SUPERRARE:
-                    imagelight.color = Color.yellow;
-                    break;
-            }
+                Weapon w = wlist[Random.Range(0, wlist.Count)];
 
-            weapon = WeaponConntroller.spawnWeapon(0, Vector2.zero, item.transform.position, w.weaponType);
-            item.sprite = weapon.getSprite();
+                switch (w.rarityType)
+                {
+                    case Rarity.rarityType.COMMON:
+                        imagelight.color = Color.white;
+                        break;
+                    case Rarity.rarityType.RARE:
+                        imagelight.color = Color.blue;
+                        break;
+                    case Rarity.rarityType.EPIC:
+                        imagelight.color = Color.magenta;
+                        break;
+                    case Rarity.rarityType.SUPERRARE:
+                        imagelight.color = Color.yellow;
+                        break;
+                }
 
-            if (i < 10 )
-            {
-                weapon.Destroythis();
-                yield return new WaitForSeconds(0.2f);
+                weapon = WeaponConntroller.spawnWeapon(0, Vector2.zero, item.transform.position, w.weaponType);
+                item.sprite = weapon.getSprite();
+
+                if (i < 10)
+                {
+                    weapon.Destroythis();
+                    yield return new WaitForSeconds(0.2f);
+                }
+                else
+                {
+                    okBTN.gameObject.SetActive(true);
+                    cancelBTN.gameObject.SetActive(true);
+                    yield return new WaitUntil(() => picked == true);
+                    if (take)
+                    {
+                        gameManeger.player.inventory.addWeapon(w.weaponType);
+                    }
+                }
             }
             else
             {
-                okBTN.gameObject.SetActive(true);
-                cancelBTN.gameObject.SetActive(true);
-                yield return new WaitUntil(() => picked == true);
-                if(take)
+                Skill s = slist[Random.Range(0, slist.Count)];
+
+                switch (s.rarityType)
                 {
-                    gameManeger.player.inventory.addWeapon(w.weaponType);
+                    case Rarity.rarityType.COMMON:
+                        imagelight.color = Color.white;
+                        break;
+                    case Rarity.rarityType.RARE:
+                        imagelight.color = Color.blue;
+                        break;
+                    case Rarity.rarityType.EPIC:
+                        imagelight.color = Color.magenta;
+                        break;
+                    case Rarity.rarityType.SUPERRARE:
+                        imagelight.color = Color.yellow;
+                        break;
+                }
+
+                skill = SkillController.getSkill(s.skilltype);
+                item.sprite = s.getSprite();
+
+                if (i < 10)
+                {                 
+                   yield return new WaitForSeconds(0.2f);
+                    skill = null;
+                    item.sprite = null;
+                }
+                else
+                {
+                    okBTN.gameObject.SetActive(true);
+                    cancelBTN.gameObject.SetActive(true);
+                    yield return new WaitUntil(() => picked == true);
+                    if (take)
+                    {
+                        gameManeger.player.inventory.addSkill(s.skilltype);
+                        skill = null;
+                        item.sprite = null;
+                    }
                 }
             }
+           
+
+            
         }
-        if (weapon != null) weapon.Destroythis();
+
         mainPanel.gameObject.SetActive(false);
         itemAnimator.gameObject.SetActive(false);
         luckyBoxAnimator.gameObject.SetActive(false);

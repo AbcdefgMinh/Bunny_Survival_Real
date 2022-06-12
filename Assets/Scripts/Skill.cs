@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-
     public enum skillType
     {
         FIREBALL,
@@ -18,12 +17,7 @@ public class Skill : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Animator animator;
 
-    public void Awake()
-    {
-        SkillController.Instance.skills.Add(this);
-    }
 
-   
     public int lvl;
     public float damge;
     public float speed;
@@ -42,7 +36,7 @@ public class Skill : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, angle);
         rb2d.AddForce(dir * speed, ForceMode2D.Impulse);
 
-        StartCoroutine("DestroyWithAnimation");
+    
     }
 
     IEnumerator DestroyWithAnimation()
@@ -59,6 +53,7 @@ public class Skill : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
     public Sprite getSprite()
     {
         return spriteRenderer.sprite;
@@ -66,6 +61,10 @@ public class Skill : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        Monster monster = collision.transform.GetComponent<Monster>();
+        if (monster != null)
+        {
+            monster.takeDamge(damge);
+        }
     }
 }
