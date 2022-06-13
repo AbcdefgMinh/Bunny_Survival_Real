@@ -15,6 +15,9 @@ public class MainMenu : MonoBehaviour
     public GameObject panel1;
     public GameObject panel2;
     public GameObject panel3;
+    public GameObject nextBTN;
+    public GameObject backBTN;
+    public GameObject exitBTN;
 
     List<GameObject> panellist;
     int current = 0;
@@ -88,6 +91,9 @@ public class MainMenu : MonoBehaviour
         panellist[current].SetActive(true);
         count.SetText(panellist.Count + " / " + (current + 1));
         tutorialpanel.gameObject.SetActive(true);
+        nextBTN.SetActive(true);
+        backBTN.SetActive(true);
+        exitBTN.SetActive(true);
     }
     public void onQuitClicked()
     {
@@ -119,6 +125,9 @@ public class MainMenu : MonoBehaviour
     public void onExitClicked()
     {
         audioManager.Play(Sound.soundType.button);
+        nextBTN.SetActive(false);
+        backBTN.SetActive(false);
+        exitBTN.SetActive(false);
         tutorialpanel.gameObject.SetActive(false);
     }
 }
