@@ -563,7 +563,7 @@ MonoBehaviour:
   circleCollider: {fileID: 0}
   lvl: 8
   maxHP: 1000
-  attack: 0
+  attack: 10
   speed: 5
   attackCoolDown: 0
   monstertype: 7
