@@ -39,9 +39,19 @@ public class Inventory : MonoBehaviour
 
     public void addSkill(Skill.skillType skillType)
     {
-        if (weaponList.Count == 3) return;
-        skillList.Add(SkillController.getSkill(skillType));
+        if (skillList.Count == 3) return;
+        Skill s = SkillController.getSkill(skillType);
+        foreach (var skill in skillList)
+        {
+            if (skill == s)
+            {
+                skill.damge += 5;
+                return;
+            }
+        }
+        skillList.Add(s);
         player.playerSkill.addSkill(SkillController.getSkill(skillType));
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

@@ -84,8 +84,6 @@ public class PlayerSkill : MonoBehaviour
         if (skillno1 == null || attackCoolDown <= 0) return;
         if (skillno1.currentCoolDown != 0) return;
 
-        
-
         if (player.currentMP >= skillno1.cost)
         {
             attackCoolDown = 0.5f;

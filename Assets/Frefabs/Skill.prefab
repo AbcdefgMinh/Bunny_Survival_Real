@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1038466856889348508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5385331688069054382}
@@ -186,12 +186,12 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2013870762384714026}
   animator: {fileID: 7944270083289687640}
   lvl: 1
-  damge: 5
+  damge: 40
   speed: 5
-  coolDown: 3
+  coolDown: 20
   currentCoolDown: 0
   cost: 30
-  knockBack: 3
+  knockBack: 8
   timeOnField: 5
   skilltype: 1
   rarityType: 2
@@ -381,11 +381,11 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7236826615547538784}
   animator: {fileID: 2138685003630510665}
   lvl: 1
-  damge: 5
-  speed: 3
+  damge: 10
+  speed: 4
   coolDown: 10
   currentCoolDown: 0
-  cost: 30
+  cost: 15
   knockBack: 3
   timeOnField: 5
   skilltype: 0
@@ -575,14 +575,14 @@ MonoBehaviour:
   rb2d: {fileID: 3313727056196205331}
   spriteRenderer: {fileID: 2827056817145886028}
   animator: {fileID: 6329494342076680178}
-  lvl: 0
-  damge: 0
-  speed: 0
-  coolDown: 0
+  lvl: 1
+  damge: 25
+  speed: 5
+  coolDown: 15
   currentCoolDown: 0
-  cost: 0
-  knockBack: 0
-  timeOnField: 0
+  cost: 25
+  knockBack: 5
+  timeOnField: 5
   skilltype: 3
   rarityType: 3
 --- !u!1 &4277519818272535974
@@ -821,15 +821,15 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4176278914039881527}
   animator: {fileID: 4222285239233709774}
   lvl: 1
-  damge: 5
+  damge: 15
   speed: 5
-  coolDown: 10
+  coolDown: 12
   currentCoolDown: 0
-  cost: 30
+  cost: 20
   knockBack: 3
   timeOnField: 5
   skilltype: 2
-  rarityType: 0
+  rarityType: 1
 --- !u!1 &5585358585536624085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,11 +1016,11 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4884855095502942028}
   animator: {fileID: 5792673955194842314}
   lvl: 1
-  damge: 5
+  damge: 15
   speed: 5
-  coolDown: 10
+  coolDown: 12
   currentCoolDown: 0
-  cost: 30
+  cost: 20
   knockBack: 3
   timeOnField: 5
   skilltype: 4

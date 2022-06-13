@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -639,10 +639,10 @@ TextureImporter:
       Monster3_14: -862793465
       Monster3_0: -362455831
       Monster3_72: 1357873925
-      Monster3_10: 1033667340
+      Monster3_27: -151034035
       Monster3_44: 607971726
       Monster3_81: 187004111
-      Monster3_27: -151034035
+      Monster3_10: 1033667340
       Monster3_82: 1006406296
       Monster3_52: -54423022
       Monster3_62: -112377329
