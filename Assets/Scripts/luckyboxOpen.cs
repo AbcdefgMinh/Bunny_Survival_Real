@@ -45,7 +45,7 @@ public class luckyboxOpen : MonoBehaviour
         for (int i = 0;i < 11; i++)
         {
 
-            int what = Random.Range(0, 1);
+            int what = Random.Range(0, 2);
             if(what == 1)
             {
                 Weapon w = wlist[Random.Range(0, wlist.Count)];

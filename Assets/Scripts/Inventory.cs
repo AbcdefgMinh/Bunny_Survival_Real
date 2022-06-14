@@ -82,12 +82,12 @@ public class Inventory : MonoBehaviour
 
     private void playerPickEXP()
     {
-        player.setEXP(20);
+        player.setEXP(10);
     }
 
     private void playerPickHealth()
     {
-        player.setHP(40);
+        player.setHP(20);
     }
 
     private void playerPickMana()

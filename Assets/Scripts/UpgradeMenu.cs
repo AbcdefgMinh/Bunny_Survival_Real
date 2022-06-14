@@ -133,13 +133,13 @@ public class UpgradeMenu : MonoBehaviour
                 player.setMaxMP(30); 
                 break;
             case PlayerStats.playerStatType.SPEED:
-                player.speed += 1f;
+                player.speed += 0.2f;
                 break;
             case PlayerStats.playerStatType.ATTACK:
-                player.attack += 2;
+                player.attack += 0.5F;
                 break;
             case PlayerStats.playerStatType.ATTACKSPEED:
-                player.attackSpeed -= 0.2f;
+                player.attackSpeed -= 0.1f;
                 break;
         }
     }

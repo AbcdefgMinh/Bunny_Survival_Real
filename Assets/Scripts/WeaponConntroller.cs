@@ -13,6 +13,15 @@ public class WeaponConntroller : MonoBehaviour
     {
         Instance = this;
         weapons = new List<Weapon>();
+        weapons.Add(transform.GetChild(0).GetComponent<Weapon>());
+        weapons.Add(transform.GetChild(1).GetComponent<Weapon>());
+        weapons.Add(transform.GetChild(2).GetComponent<Weapon>());
+        weapons.Add(transform.GetChild(3).GetComponent<Weapon>());
+        weapons.Add(transform.GetChild(4).GetComponent<Weapon>());
+        weapons.Add(transform.GetChild(5).GetComponent<Weapon>());
+        weapons.Add(transform.GetChild(6).GetComponent<Weapon>());
+
+
     }
 
     public static Weapon spawnWeaponfly(float playerdamge,Vector2 dir,Vector2 pos, Weapon.WeaponType weaponType)

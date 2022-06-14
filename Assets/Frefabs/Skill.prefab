@@ -186,9 +186,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2013870762384714026}
   animator: {fileID: 7944270083289687640}
   lvl: 1
-  damge: 40
+  damge: 25
   speed: 5
-  coolDown: 20
+  coolDown: 15
   currentCoolDown: 0
   cost: 30
   knockBack: 8
@@ -576,9 +576,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2827056817145886028}
   animator: {fileID: 6329494342076680178}
   lvl: 1
-  damge: 25
+  damge: 40
   speed: 5
-  coolDown: 15
+  coolDown: 25
   currentCoolDown: 0
   cost: 25
   knockBack: 5

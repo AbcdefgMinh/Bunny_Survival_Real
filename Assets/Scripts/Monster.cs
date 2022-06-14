@@ -23,7 +23,8 @@ public class Monster : MonoBehaviour
         MON5,
         MON6,
         MON7,
-        MON8
+        MON8,
+        BossMon
     }
 
     void Awake()
@@ -57,21 +58,21 @@ public class Monster : MonoBehaviour
         GameManeger.MONSTERSKILL++;
 
 
-        int i = Random.Range(0, 101);
+        int i = Random.Range(0, 51);
   
-        if(i == 100)
+        if(i == 50)
         {
             ItemController.spawnItem(transform.position, Item.itemType.LUCKYBOX);
         }
-        else if(i >= 97 && i <= 99)
+        else if(i >= 47 && i <= 49)
         {
             ItemController.spawnItem(transform.position, Item.itemType.HEALTHPOTION);
         }
-        else if(i >= 93 && i <= 96)
+        else if(i >= 43 && i <= 46)
         {
             ItemController.spawnItem(transform.position, Item.itemType.MANAPOTION);
         }
-        else if(i < 92)
+        else if(i < 42)
         {
             ItemController.spawnItem(transform.position, Item.itemType.EXP);
         }

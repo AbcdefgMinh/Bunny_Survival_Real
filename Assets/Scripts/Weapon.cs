@@ -17,10 +17,6 @@ public class Weapon : MonoBehaviour
     public Rigidbody2D rb2d;
     public SpriteRenderer spriteRenderer;
 
-    public void Awake()
-    {
-        WeaponConntroller.Instance.weapons.Add(this);
-    }
 
     public WeaponType weaponType;
     public int lvl;
