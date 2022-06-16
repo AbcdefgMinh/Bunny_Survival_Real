@@ -1234,7 +1234,18 @@ public class GameManeger : MonoBehaviour
 
                 break;
             case 18: spawning = true; break;
-                /////////////
+            /////////////
+            ///
+            ///
+            /// ///   ////// //////////////////////////////////////////////////////////
+            case 1:
+                if (spawning == false) break;
+                spawning = false;
+                StartCoroutine(WaitAndDo(1f, () => { StartCoroutine(CreateWave(MonsterSpawn.spawnDoor(getRamdomPos()), 1, Monster.monsterType.BossMon)); }));
+                break;
+            case 0: spawning = true; break;
+                ///////////
+
         }
     }
 

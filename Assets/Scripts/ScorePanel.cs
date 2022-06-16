@@ -39,10 +39,10 @@ public class ScorePanel : MonoBehaviour
         gamescoreUI.gameObject.SetActive(true);
 
 
-        for (kill = 0; kill <= GameManeger.MONSTERSKILL; kill++)
+        for (kill = (int)GameManeger.MONSTERSKILL/2; kill <= GameManeger.MONSTERSKILL; kill++)
         {
             monsterkilltxt.SetText(kill + "");
-            yield return new WaitForSeconds(0.02f);
+            //yield return new WaitForSeconds(0.001f);
 
         }
 
@@ -50,7 +50,7 @@ public class ScorePanel : MonoBehaviour
         if(timesurvie == 1800)
         {
             timetxt.SetText(0 + " : " + 0);
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.001f);
         }
         else
         {
@@ -59,7 +59,7 @@ public class ScorePanel : MonoBehaviour
                 int minutes = Mathf.FloorToInt(time / 60);
                 int seconds = Mathf.FloorToInt(time % 60);
                 timetxt.SetText(minutes + " : " + seconds);
-                yield return new WaitForSeconds(0.01f);
+                //yield return new WaitForSeconds(0.01f);
             }
         }
 

@@ -1217,8 +1217,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7889634075521671747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.9162433, y: 4.5181527, z: 1}
+  m_LocalPosition: {x: -0.11, y: 0.12, z: 0}
+  m_LocalScale: {x: 0.43285692, y: 0.4659103, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2314486426486869335}
@@ -1234,7 +1234,7 @@ Animator:
   m_GameObject: {fileID: 7889634075521671747}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9bea1f257475da14eb74503493782c15, type: 2}
+  m_Controller: {fileID: 9100000, guid: c874b0deb5c6b2548be57cd8322fa9a9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1285,7 +1285,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 1135609900608688546, guid: 1049a4016fd6ae34492b0847590eccf7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8b36f3d776af2e4aa5fb61401f73c7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1304,7 +1304,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7889634075521671747}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1355,8 +1355,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006469629, y: -0.0045896554}
-  m_Size: {x: 0.36607048, y: 0.38954335}
+  m_Offset: {x: -0.06204952, y: -0.049259253}
+  m_Size: {x: 3.2784884, y: 4.589132}
   m_Direction: 0
 --- !u!114 &5188772819469095010
 MonoBehaviour:
@@ -1371,10 +1371,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circleCollider: {fileID: 0}
-  lvl: 9
-  maxHP: 100
-  attack: 20
-  speed: 3
+  lvl: 10
+  maxHP: 1000000
+  attack: 100000
+  speed: 10
   attackCoolDown: 0
   monstertype: 8
 --- !u!1 &8292503074347620146

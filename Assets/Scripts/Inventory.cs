@@ -21,9 +21,9 @@ public class Inventory : MonoBehaviour
 
     public void addWeapon(Weapon.WeaponType weaponType)
     {
-        if (weaponList.Count == 4) return;
         Weapon w = WeaponConntroller.getWeapon(weaponType);
-        foreach(Weapon weapon in weaponList)
+        if (weaponList.Count == 4 && !weaponList.Contains(w)) return;
+        foreach (Weapon weapon in weaponList)
         {
             if(weapon == w)
             {
