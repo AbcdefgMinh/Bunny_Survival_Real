@@ -625,8 +625,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 218.9, y: -90}
-  m_SizeDelta: {x: 237.8, y: 50}
+  m_AnchoredPosition: {x: 203.93001, y: -90}
+  m_SizeDelta: {x: 267.74, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79324289
 MonoBehaviour:
@@ -675,8 +675,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -118509,8 +118509,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 220, y: 150}
-  m_SizeDelta: {x: 224.92, y: 50}
+  m_AnchoredPosition: {x: 201.26001, y: 150}
+  m_SizeDelta: {x: 262.4, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402432631
 MonoBehaviour:
@@ -118559,8 +118559,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -119564,8 +119564,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 220, y: 24.999971}
-  m_SizeDelta: {x: 224.92, y: 50}
+  m_AnchoredPosition: {x: 203.93, y: 24.999971}
+  m_SizeDelta: {x: 267.74, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527031608
 MonoBehaviour:
@@ -119614,8 +119614,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -120759,7 +120759,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -123154,8 +123154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ca9e0758ff1d04999cf6c1e6afa8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 0.5
-  pitch: 0.5
+  volume: 1
+  pitch: 1
   soundtype: 1
   audioClip: {fileID: 8300000, guid: 18fcf263e36202045b5622d5b2a258d0, type: 3}
   audio: {fileID: 785273478}
@@ -125419,7 +125419,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -134404,6 +134404,7 @@ MonoBehaviour:
   timer: {fileID: 1773318864}
   player: {fileID: 1005634265}
   scorepanel: {fileID: 2116165197}
+  audioManager: {fileID: 843531685}
 --- !u!4 &1773318862
 Transform:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class Menu : MonoBehaviour
     public void PauseGame()
     {
         pause = !pause;
+        AudioManager.instance.Play(Sound.soundType.button);
         panel.gameObject.SetActive(pause);
         gameManeger.gamePause(pause);
     }
@@ -24,17 +25,20 @@ public class Menu : MonoBehaviour
     public void continueClicked()
     {
         pause = !pause;
+        AudioManager.instance.Play(Sound.soundType.button);
         panel.gameObject.SetActive(pause);
         gameManeger.gamePause(pause);
     }
 
     public void mainmenuClicked()
     {
+        AudioManager.instance.Play(Sound.soundType.button);
         gameManeger.StartCoroutine("MainMenu");
     }
 
     public void quitClicked()
     {
+        AudioManager.instance.Play(Sound.soundType.button);
         Application.Quit();
     }
 }

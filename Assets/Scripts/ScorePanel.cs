@@ -80,17 +80,20 @@ public class ScorePanel : MonoBehaviour
 
     public void retryClicked()
     {
+        AudioManager.instance.Play(Sound.soundType.button);
         clicked = true;
         gameManeger.StartCoroutine("RestartGame");
     }
     public void mainmenuClicked()
     {
+        AudioManager.instance.Play(Sound.soundType.button);
         clicked = true;
         gameManeger.StartCoroutine("MainMenu");
     }
 
     public void quitClicked()
     {
+        AudioManager.instance.Play(Sound.soundType.button);
         clicked = true;
         Application.Quit();
     }

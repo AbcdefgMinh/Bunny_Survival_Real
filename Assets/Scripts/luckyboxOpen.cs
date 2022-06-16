@@ -41,7 +41,7 @@ public class luckyboxOpen : MonoBehaviour
         item.sprite = null;
         yield return new WaitForSeconds(1f);
         itemAnimator.gameObject.SetActive(true);
-
+        AudioManager.instance.PlayLoop(Sound.soundType.luckybox);
         for (int i = 0;i < 11; i++)
         {
 
@@ -78,6 +78,7 @@ public class luckyboxOpen : MonoBehaviour
                 {
                     okBTN.gameObject.SetActive(true);
                     cancelBTN.gameObject.SetActive(true);
+                    AudioManager.instance.Pause(Sound.soundType.luckybox);
                     yield return new WaitUntil(() => picked == true);
                     if (take)
                     {
@@ -118,6 +119,7 @@ public class luckyboxOpen : MonoBehaviour
                 {
                     okBTN.gameObject.SetActive(true);
                     cancelBTN.gameObject.SetActive(true);
+                    AudioManager.instance.Pause(Sound.soundType.luckybox);
                     yield return new WaitUntil(() => picked == true);
                     if (take)
                     {
@@ -131,7 +133,7 @@ public class luckyboxOpen : MonoBehaviour
 
             
         }
-
+        AudioManager.instance.Pause(Sound.soundType.getitem);
         mainPanel.gameObject.SetActive(false);
         itemAnimator.gameObject.SetActive(false);
         luckyBoxAnimator.gameObject.SetActive(false);
@@ -141,12 +143,13 @@ public class luckyboxOpen : MonoBehaviour
 
     public void okClicked()
     {
+        AudioManager.instance.Play(Sound.soundType.button);
         picked = true;
         take = true;
     }
 
     public void cancelClicked()
-    {
+    {AudioManager.instance.Play(Sound.soundType.button);
         picked = true;
         take = false;
     }

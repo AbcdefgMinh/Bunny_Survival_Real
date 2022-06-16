@@ -15,6 +15,7 @@ public class GameManeger : MonoBehaviour
     public Timer timer;
     public Player player;
     public ScorePanel scorepanel;
+    public AudioManager audioManager;
 
     public static List<Monster> monsters;
     public static bool pause = false;
@@ -25,6 +26,7 @@ public class GameManeger : MonoBehaviour
     int y2 = -12;
 
     bool spawning = true;
+    bool sound = true;
     bool maxMonster = false;
 
     public void Awake()
@@ -1254,6 +1256,7 @@ public class GameManeger : MonoBehaviour
         loadingscene.gameObject.SetActive(true);
         loadingAnim.SetTrigger("done");
         yield return new WaitForSeconds(2.5f);
+        audioManager.PlayLoop(Sound.soundType.gameplay);
         MONSTERSKILL = 0;
         DAMGEDEAL = 0;     
         scorepanel.gamestartUI.gameObject.SetActive(true);
@@ -1289,9 +1292,23 @@ public class GameManeger : MonoBehaviour
 
     public void gamePause(bool x)
     {
+        background();
         pause = x;
         player.controller.enable = !x;
         timer.timerIsRunning = !x;
+    }
+
+    public void background()
+    {
+        sound = !sound;
+        if (sound)
+        {
+            audioManager.Play(Sound.soundType.gameplay);
+        }
+        else
+        {
+            audioManager.Pause(Sound.soundType.gameplay);
+        }
     }
 
     IEnumerator CreateWave(Transform door, int amount, Monster.monsterType monsterType)

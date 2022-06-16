@@ -146,6 +146,7 @@ public class UpgradeMenu : MonoBehaviour
 
     public void itemClicked(UpgradeItemUI u)
     {
+        AudioManager.instance.Play(Sound.soundType.button);
         picked = true;
         addStats(u.playerstats);
     }

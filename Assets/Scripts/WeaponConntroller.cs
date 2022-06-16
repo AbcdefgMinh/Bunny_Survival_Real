@@ -19,9 +19,6 @@ public class WeaponConntroller : MonoBehaviour
         weapons.Add(transform.GetChild(3).GetComponent<Weapon>());
         weapons.Add(transform.GetChild(4).GetComponent<Weapon>());
         weapons.Add(transform.GetChild(5).GetComponent<Weapon>());
-        weapons.Add(transform.GetChild(6).GetComponent<Weapon>());
-
-
     }
 
     public static Weapon spawnWeaponfly(float playerdamge,Vector2 dir,Vector2 pos, Weapon.WeaponType weaponType)

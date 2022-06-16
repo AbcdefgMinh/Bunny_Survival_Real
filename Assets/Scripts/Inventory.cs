@@ -73,9 +73,9 @@ public class Inventory : MonoBehaviour
                 case Item.itemType.LUCKYBOX:
                     playerPickLuckyBox();
                     break;
-            }
-
+            }         
             item.Destroythis();
+            AudioManager.instance.Play(Sound.soundType.pickitem);
         }
         
     }
